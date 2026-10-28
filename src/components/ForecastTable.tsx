@@ -15,8 +15,15 @@ export function ForecastTable({ rows }: ForecastTableProps) {
       <thead>
         <tr>
           <th>Дата</th>
-          <th>Мин. температура</th>
-          <th>Макс. температура</th>
+          {/* На узких экранах заголовки короче, чтобы таблица помещалась без прокрутки */}
+          <th>
+            <span className="d-none d-sm-inline">Мин. температура</span>
+            <span className="d-sm-none">Мин.</span>
+          </th>
+          <th>
+            <span className="d-none d-sm-inline">Макс. температура</span>
+            <span className="d-sm-none">Макс.</span>
+          </th>
           <th>Погода</th>
         </tr>
       </thead>

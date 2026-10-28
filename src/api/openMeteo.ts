@@ -17,9 +17,21 @@ const cache = new Map<string, Promise<unknown>>();
 
 const sleep = (ms: number) => new Promise<void>((resolve) => setTimeout(resolve, ms));
 
-/** fetch с проверкой статуса; при 429 (лимит запросов) пробуем ещё раз с паузой */
+/**
+ * fetch с проверкой статуса. Повторяем запрос с паузой, если сеть моргнула
+ * (fetch бросил TypeError) или API ответил 429 (лимит запросов).
+ */
 async function request<T>(url: string, retries = 2): Promise<T> {
-  const response = await fetch(url);
+  let response: Response;
+  try {
+    response = await fetch(url);
+  } catch (err) {
+    if (retries > 0) {
+      await sleep(1000);
+      return request<T>(url, retries - 1);
+    }
+    throw err;
+  }
   if (response.status === 429 && retries > 0) {
     await sleep(1500);
     return request<T>(url, retries - 1);

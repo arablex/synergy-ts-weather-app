@@ -3,3 +3,7 @@ dist
 submit.zip
 .tmp
 *.log
+
+# материалы для сдачи в LMS (не часть кода)
+screenshots
+answer.md
