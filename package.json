@@ -1,0 +1,30 @@
+{
+  "name": "itog-weather",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Итоговый проект: приложение погоды на React + TypeScript + React Bootstrap + SCSS (open-meteo)",
+  "scripts": {
+    "dev": "vite",
+    "start": "vite",
+    "build": "tsc --noEmit && vite build",
+    "typecheck": "tsc --noEmit",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.8",
+    "react": "^19.3.1",
+    "react-bootstrap": "^2.10.10",
+    "react-dom": "^19.3.1",
+    "react-router-dom": "^7.18.5"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.5",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "sass": "^1.106.1",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.5"
+  }
+}
