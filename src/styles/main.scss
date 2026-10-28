@@ -1,0 +1,6 @@
+// 1. Свои переменные — до Bootstrap, чтобы переопределить его значения по умолчанию
+@import 'variables';
+// 2. Bootstrap из SCSS-исходников
+@import 'bootstrap/scss/bootstrap';
+// 3. Свои стили компонентов
+@import 'components';
